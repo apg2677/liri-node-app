@@ -4,10 +4,10 @@ var moment = require("moment");
 
 var Spotify = require("node-spotify-api");
 
- var keys = require("./keys");
+var keys = require("./keys");
 
- var spotify = new Spotify(keys.spotify);
- console.log(keys.spotify);
+var spotify = new Spotify(keys.spotify);
+console.log(keys.spotify);
 
 var transact = process.argv[2];
 
@@ -19,12 +19,18 @@ var requestUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app
 switch (transact) {
     case commands[0]:
         axios.get(requestUrl).then(function (res) {
-            for(var i in res.data) {
+            for (var i in res.data) {
                 ConcertInfo(res, i);
             }
-            
+
         });
         break;
+    case commands[1]:
+        var song = encodeURI(process.argv[3]);
+        spotify.search({ type: 'track', query: song }).then(function(res) {
+            console.log(res.tracks.items[0]);
+        });
+
 }
 function ConcertInfo(res, i) {
     var venName = res.data[i].venue.name;
