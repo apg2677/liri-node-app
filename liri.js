@@ -27,29 +27,34 @@ switch (transact) {
         break;
     case commands[1]:
         SongInfo();
-
+        break;
     case commands[2]:
         var movieStr = encodeURI(process.argv[3]);
         var requestUrl = "http://www.omdbapi.com/?t=" + movieStr + "&y=&plot=short&apikey=trilogy";
-        axios.get(requestUrl).then(function(res) {
-            var title = res.data.Title;
-            var year = res.data.Year;
-            var ratingIMDB = res.data.imdbRating;
-            var ratingRT = res.data.tomatoRating;
-            var lang = res.data.Language;
-            var plot = res.data.Plot;
-            var actors = res.data.Actors;
-            console.log("Title: " + title);
-            console.log("Year: " + year);
-            console.log("IMDB Rating: " + JSON.stringify(ratingIMDB));
-            console.log("Rotten Tomatoes: " + ratingRT);
-            console.log("Language: " + lang);
-            console.log("Plot: " + plot );
-            console.log("Actors: " + JSON.stringify(actors));
-        });
+        MovieInfo();
+        break;
 
 
 }
+function MovieInfo() {
+    axios.get(requestUrl).then(function (res) {
+        var title = res.data.Title;
+        var year = res.data.Year;
+        var ratingIMDB = res.data.imdbRating;
+        var ratingRT = res.data.tomatoRating;
+        var lang = res.data.Language;
+        var plot = res.data.Plot;
+        var actors = res.data.Actors;
+        console.log("Title: " + title);
+        console.log("Year: " + year);
+        console.log("IMDB Rating: " + JSON.stringify(ratingIMDB));
+        console.log("Rotten Tomatoes: " + ratingRT);
+        console.log("Language: " + lang);
+        console.log("Plot: " + plot);
+        console.log("Actors: " + JSON.stringify(actors));
+    });
+}
+
 function SongInfo() {
     var song = encodeURI(process.argv[3]);
     spotify.search({ type: 'track', query: song }).then(function (res) {
