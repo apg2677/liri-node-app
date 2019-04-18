@@ -28,7 +28,11 @@ switch (transact) {
     case commands[1]:
         var song = encodeURI(process.argv[3]);
         spotify.search({ type: 'track', query: song }).then(function(res) {
-            console.log(res.tracks.items[0].artists[0].name);
+            var artist = res.tracks.items[0].artists[0].name;
+            var album = JSON.stringify(res.tracks.items[0].album.name);
+            console.log("Song: " + decodeURI(song));
+            console.log("Artist: " + artist);
+            console.log("Album: " + album); 
         });
 
 }
