@@ -4,9 +4,11 @@ var moment = require("moment");
 
 var Spotify = require("node-spotify-api");
 
-// var keys = require("./keys.js");
+ var keys = require("./keys");
 
-// var spotify = new Spotify(keys.spotify);
+ var spotify = new Spotify(keys.spotify);
+ console.log(keys.spotify);
+
 var transact = process.argv[2];
 
 
