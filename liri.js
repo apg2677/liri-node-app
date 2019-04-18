@@ -13,6 +13,10 @@ var commands = ["concert-this", "spotify-this-song", "movie-this", "do-what-it-s
 var artist = encodeURI(process.argv[3]);
 var requestUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
 
-axios.get(requestUrl).then(function(res) {
-    console.log(res.data);
-});
+switch (transact) {
+    case commands[0]:
+        axios.get(requestUrl).then(function (res) {
+            console.log(res.data);
+        });
+        break;
+}
