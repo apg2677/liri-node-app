@@ -31,11 +31,12 @@ switch (transact) {
     case commands[2]:
         var movieStr = encodeURI(process.argv[3]);
         var requestUrl = "http://www.omdbapi.com/?t=" + movieStr + "&y=&plot=short&apikey=trilogy";
-        search.MovieInfo();
+        axios.get(requestUrl).then(function (res) {
+
+            search.MovieInfo(res);
+        });
         break;
-
-
-}
+    }
 // function MovieInfo() {
 //     axios.get(requestUrl).then(function (res) {
 //         var title = res.data.Title;

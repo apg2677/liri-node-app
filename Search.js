@@ -4,8 +4,8 @@ var keys = require("./keys");
 
 var spotify = new Spotify(keys.spotify);
 
-function MovieInfo() {
-    axios.get(requestUrl).then(function (res) {
+function MovieInfo(res) {
+    
         var title = res.data.Title;
         var year = res.data.Year;
         var ratingIMDB = res.data.imdbRating;
@@ -20,7 +20,7 @@ function MovieInfo() {
         console.log("Language: " + lang);
         console.log("Plot: " + plot);
         console.log("Actors: " + JSON.stringify(actors));
-    });
+    
 }
 
 function SongInfo() {
