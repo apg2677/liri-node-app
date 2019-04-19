@@ -3,8 +3,9 @@ var axios = require("axios");
 var moment = require("moment");
 var search = require("./Search");
 var Spotify = require("node-spotify-api");
-
+var fs = require("fs");
 var keys = require("./keys");
+var cp = require("child_process");
 
 var spotify = new Spotify(keys.spotify);
 console.log(keys.spotify);
@@ -36,5 +37,18 @@ switch (transact) {
             search.MovieInfo(res);
         });
         break;
-    }
+    case commands[3]:
+        fs.readFile("random.txt", function(err, data) {
+            var dataStr = data.toString();
+            var tempStr = dataStr.split(",");
+            var command = tempStr[0];
+            var target = tempStr[1];
+            var execStr = "node liri " + command + " " + target; 
+            var code = cp.execSync(execStr);
+            console.log(code.toString());
+        });
+
+        break;
+
+}
 
