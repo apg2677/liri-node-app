@@ -22,6 +22,7 @@ switch (transact) {
         axios.get(requestUrl).then(function (res) {
             for (var i in res.data) {
                 search.ConcertInfo(res, i);
+
             }
 
         });

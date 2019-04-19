@@ -1,7 +1,7 @@
 var axios = require("axios");
 var Spotify = require("node-spotify-api");
 var keys = require("./keys");
-
+var fs = require("fs");
 var spotify = new Spotify(keys.spotify);
 
 function MovieInfo(res) {
@@ -20,6 +20,13 @@ function MovieInfo(res) {
         console.log("Language: " + lang);
         console.log("Plot: " + plot);
         console.log("Actors: " + JSON.stringify(actors));
+        fs.appendFileSync("log.txt", "Title: " + title + "\n");
+        fs.appendFileSync("log.txt", "Year: " + year + "\n");
+        fs.appendFileSync("log.txt", "IMDB: " + ratingIMDB + "\n");
+        fs.appendFileSync("log.txt", "Rotten Tomatoes: " +ratingRT + "\n");
+        fs.appendFileSync("log.txt", "Language: " + lang + "\n");
+        fs.appendFileSync("log.txt", "Plot: " + plot + "\n");
+        fs.appendFileSync("log.txt", "Actors: " + JSON.stringify(actors, null, 4));
     
 }
 
@@ -44,6 +51,7 @@ function ConcertInfo(res, i) {
     console.log("Venue: " + venName);
     console.log("Location: " + city + ", " + state);
     console.log("Date: " + date);
+    
 }
 module.exports = {
     ConcertInfo: ConcertInfo,
