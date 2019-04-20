@@ -65,7 +65,7 @@ function CheckCommand(t, tar) {
                 // console.log(code.toString());
                 console.log("ExecStr: " + execStr);
                 // console.group("Command" + command);
-                CheckCommand(execStr);
+                CheckCommand(command, target);
             });
             
             break;
