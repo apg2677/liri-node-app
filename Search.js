@@ -30,13 +30,13 @@ function MovieInfo(res) {
     
 }
 
-function SongInfo() {
-    var song = encodeURI(process.argv[3]);
-    spotify.search({ type: 'track', query: song }).then(function (res) {
+function SongInfo(t) {
+    // var song = encodeURI(process.argv[3]);
+    spotify.search({ type: 'track', query: t }).then(function (res) {
         var artist = res.tracks.items[0].artists[0].name;
         var album = JSON.stringify(res.tracks.items[0].album.name);
         var prevLink = res.tracks.items[0].preview_url;
-        console.log("Song: " + decodeURI(song));
+        console.log("Song: " + decodeURI(t));
         console.log("Artist: " + artist);
         console.log("Album: " + album);
         console.log("Preview Link: " + prevLink);
