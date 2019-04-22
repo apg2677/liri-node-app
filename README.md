@@ -26,7 +26,7 @@
             5. Language
             6. Plot
             7. Actors
-![Movie Image](../screenshots/moviethis.png)
+![Movie Image](moviethis.png)
 
 
     * Concerts:
