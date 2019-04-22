@@ -37,6 +37,9 @@
                 2. City
                 3. State
                 4. Date
+![Concert Image](concertthis1.png)
+![Concert Image2](concertthis2.png)
+
     * Song:
         ex. node liri spotify-this-song "Lithium"
             Returns:
@@ -44,7 +47,8 @@
                 1. Name
                 2. Artist
                 3. Album
-                4. Preview Link            
+                4. Preview Link      
+![Song Image](spotifythissong.png)
 
 
             
