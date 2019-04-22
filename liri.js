@@ -8,7 +8,7 @@ var keys = require("./keys");
 // var cp = require("child_process");
 
 var spotify = new Spotify(keys.spotify);
-console.log(keys.spotify);
+// console.log(keys.spotify);
 
 var transact = process.argv[2];
 
