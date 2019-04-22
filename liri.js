@@ -26,7 +26,7 @@ function CheckCommand(t, tar) {
     // var tempStr="";
     // var command="";
     // var target="";
-    console.log("Check Command: ");
+    // console.log("Check Command: ");
     switch (t) {
         case commands[0]:
             var requestUrl = "https://rest.bandsintown.com/artists/" + tar + "/events?app_id=codingbootcamp";
